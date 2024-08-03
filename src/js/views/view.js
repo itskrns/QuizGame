@@ -7,7 +7,7 @@ export default class View {
   _data;
   _index;
  
-  renderData(data, index = DEFAULT_INDEX) {
+  renderData(data, index) {
     this._data = data;
     this._index = index;
     
@@ -16,7 +16,7 @@ export default class View {
     this.parentEle.insertAdjacentHTML("afterbegin", markup);
   }
 
-  renderLayout(data, index = DEFAULT_INDEX) {
+  renderLayout(data, index) {
     this._data = data;
     this._index = index;
     
@@ -50,6 +50,7 @@ export default class View {
 
     const newElements = Array.from(newDOM.querySelectorAll("*"));
     const curElements = Array.from(this.parentEle.querySelectorAll("*"));
+
 
     newElements.forEach((newEl, i) => {
       const curEl = curElements[i];

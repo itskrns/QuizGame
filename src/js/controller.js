@@ -1,3 +1,4 @@
+import { DEFAULT_INDEX } from "./config.js";
 import * as modal from "./modal.js";
 import formView from "./views/formView.js";
 import layoutView from "./views/layoutView.js";
@@ -13,7 +14,7 @@ const controlFormView = async function () {
     await modal.loadData(query);
 
     [layoutView, navigationView].forEach((ele) =>
-      ele.renderData(modal.quiz)
+      ele.renderData(modal.quiz, DEFAULT_INDEX)
     );
   } catch (err) {
     formView.renderError()
@@ -32,9 +33,8 @@ const controlLayoutView = function (e) {
 const controlNavigationView = function (e) {
   try {
     const { id } = e.target.dataset;
-    [layoutView, navigationView].forEach((ele) =>
-      ele.update(modal.quiz, +id)
-    );
+    layoutView.renderData(modal.quiz, +id)
+    navigationView.update(modal.quiz, +id)
   } catch (err) {
     navigationView.renderError(err.message)
   }
@@ -48,7 +48,7 @@ const controlResultView = function () {
 
     resultView.renderSpinner();
     modal.calcResult(modal.quiz.questions);
-    resultView.renderData(modal.quiz);
+    resultView.renderData(modal.quiz, DEFAULT_INDEX);
   } catch (err) {
     resultView.renderError()
   }
@@ -62,9 +62,9 @@ const controlSolutionView = function () {
     navigationView.parentEle.classList.toggle("hidden");
 
     layoutView.renderSpinner();
-    resultView.update(modal.quiz);
+    resultView.update(modal.quiz, DEFAULT_INDEX);
     [layoutView, navigationView].forEach((ele) =>
-      ele.renderData(modal.quiz)
+      ele.renderData(modal.quiz,  DEFAULT_INDEX)
     );
   } catch (err) {
     layoutView.renderError()

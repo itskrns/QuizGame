@@ -4,7 +4,7 @@
   "description": "Quiz Game using Trivia API",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html --dist-dir ./dist"
   },
   "author": "Karan Singh",
   "license": "ISC",

@@ -13,18 +13,6 @@ class layoutView extends View {
       if (e.target.closest("input")) handle(e);
     });
   }
-  
-  addNavigationHandler(handle) {
-    this.parentEle.addEventListener("click", function (e) {
-      if (e.target.classList.contains("navigate")) handle(e);
-    });
-  }
-
-  addResultHandler(handle) {
-    this.parentEle.addEventListener("click", function (e) {
-      if (e.target.classList.contains("btn--submit")) handle();
-    });
-  }
 
   _genMarkup() {
     this._question = this._data.questions[this._index]
@@ -40,7 +28,7 @@ class layoutView extends View {
       </div>
 
       <div class="layout ${this._data.renderSolution ? "layout--border" : ""}">
-        <p class="quiz__question option">Q ${this._index + 1}. ${this._question.question}</p>
+        <p class="quiz__question option">Q ${this._index + 1}. ${this._data.questions[this._index].question}</p>
 
         <div class="section quiz__options">
           ${this._question.answers.map((answer, ind) =>  this._genOptionMarkup(answer, ind)).join(" ")}
