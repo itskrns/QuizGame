@@ -2,6 +2,7 @@ import { DEFAULT_INDEX } from "./config.js";
 import * as modal from "./modal.js";
 import formView from "./views/formView.js";
 import layoutView from "./views/layoutView.js";
+import navbarView from "./views/navbarView.js";
 import navigationView from "./views/navigationView.js";
 import resultView from "./views/resultView.js";
 
@@ -13,10 +14,11 @@ const controlFormView = async function () {
     layoutView.renderSpinner();
     await modal.loadData(query);
 
-    [layoutView, navigationView].forEach((ele) =>
+    [navbarView, layoutView, navigationView].forEach((ele) =>
       ele.renderData(modal.quiz, DEFAULT_INDEX)
     );
   } catch (err) {
+    console.log(err)
     formView.renderError()
   }
 };
@@ -42,7 +44,7 @@ const controlNavigationView = function (e) {
 
 const controlResultView = function () {
   try {
-    [layoutView, navigationView].forEach((ele) =>
+    [navbarView, layoutView, navigationView].forEach((ele) =>
       ele.parentEle.classList.toggle("hidden")
     );
 
