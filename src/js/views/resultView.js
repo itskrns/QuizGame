@@ -52,9 +52,6 @@ class resultView extends View{
                 this._result.attempted
               }</p>
             </li>
-            <li class="result__link"><img src="${timeIcon}" alt="quiz" class="result__icons">
-              <p id="time">Time Taken: ${this._duration.timeStamp}</p>
-            </li>
             <li class="result__link"><img src="${rightIcon}" alt="quiz" class="result__icons">
               <p id="right">Right Answers: ${this._result.rights}</p>
             </li>
