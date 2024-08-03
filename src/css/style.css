@@ -278,7 +278,7 @@ body {
 
 .extras {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   list-style-type: none;
   text-align: center;
   margin-top: 1rem;
@@ -391,6 +391,11 @@ body {
   .result {
     grid-template-columns: repeat(1, 1fr);
   }
+
+  .extras {
+  grid-template-columns: repeat(1, 1fr);
+}
+
 }
 
 @media (max-width: 550px) {
