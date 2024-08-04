@@ -9,7 +9,7 @@ import resultView from "./views/resultView.js";
 const controlFormView = async function () {
   try {
     const query = formView.newPlayer();
-    if (!query) throw err
+    if (!query) throw new Error(`Please provide sufficient details.`)
 
     layoutView.renderSpinner();
     await modal.loadData(query);
@@ -19,7 +19,7 @@ const controlFormView = async function () {
     );
   } catch (err) {
     console.log(err)
-    formView.renderError()
+    layoutView.renderError()
   }
 };
 
