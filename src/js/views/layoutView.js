@@ -39,7 +39,7 @@ class layoutView extends View {
   _genOptionMarkup = function (answer, ind) {
     return `<label 
               class="option 
-                ${this._data.renderSolution && this._question?.activeID == ind ? (this._question.answerID == ind ? "correct" : "incorrect") : ""}">
+                ${this._data.renderSolution && this._question?.activeID == ind ? (this._question.answerID == ind ? "correct" : "incorrect") : ""} ${this._data.renderSolution && this._question.answerID == ind ? "correct" : " "}">
 
               <input type="radio" name="option" data-goto=${this._index} data-id=${ind} 
                 ${this._question?.activeID == ind ? "checked" : ""} ${this._data.renderSolution ? "disabled" : ""}> 
