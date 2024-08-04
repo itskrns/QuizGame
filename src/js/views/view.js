@@ -26,8 +26,8 @@ export default class View {
 
   renderSpinner() {
     const markup = `<div class="spinner"></div>`;
-    this.parentEle.innerHTML = " ";
-    this.parentEle.insertAdjacentHTML("afterbegin", markup);
+    this._app.innerHTML = ' '
+    this._app.insertAdjacentHTML('afterbegin', markup)
   }
 
   renderError(message = this._msg) {
