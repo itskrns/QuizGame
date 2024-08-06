@@ -28,7 +28,8 @@ class layoutView extends View {
       </div>
 
       <div class="layout ${this._data.renderSolution ? "layout--border" : ""}">
-        <p class="quiz__question option">Q ${this._index + 1}. ${this._data.questions[this._index].question}</p>
+        <p class="quiz__question option">Q ${this._index + 1}. ${this._data.questions[this._index].question} 
+        <span id="marked">${this._data.renderSolution ? (this._question.activeID ? "(Attempted)" : "(Not Attempted)") : ''}</span></p>
 
         <div class="section quiz__options">
           ${this._question.answers.map((answer, ind) =>  this._genOptionMarkup(answer, ind)).join(" ")}

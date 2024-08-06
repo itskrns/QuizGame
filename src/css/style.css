@@ -307,6 +307,10 @@ body {
   display: none;
 }
 
+#marked {
+  color: red;
+}
+
 .error {
   color: var(--color-text-dark);
   text-align: center;
